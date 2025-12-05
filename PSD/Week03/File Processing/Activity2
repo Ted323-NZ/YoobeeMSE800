@@ -1,0 +1,47 @@
+class FileProcessor:
+    """Reads a file, prints its content, counts '*' , and appends EOF message."""
+
+    def __init__(self, filepath):
+        self.filepath = filepath
+        self.content = ""
+
+    def read_file(self):
+        """Reads the whole file content into memory."""
+        try:
+            with open(self.filepath, "r", encoding="utf-8") as f:
+                self.content = f.read()
+            print(">>> File loaded successfully.\n")
+        except FileNotFoundError:
+            print("Error: File not found.")
+        except Exception as e:
+            print("Unexpected error:", e)
+
+    def print_content(self):
+        """Prints the WHOLE file content."""
+        print("========== FILE CONTENT ==========")
+        print(self.content)
+        print("==================================\n")
+
+    def count_stars(self):
+        """Counts the '*'  in the file."""
+        count = self.content.count("*")
+        print(f"Total '*' character found: {count}")
+        return count
+
+    def append_eof_message(self, message="*** End of File ***"):
+        """Appends an EOF message to the file."""
+        try:
+            with open(self.filepath, "a", encoding="utf-8") as f:
+                f.write("\n" + message + "\n")
+            print(f"{message}")
+        except Exception as e:
+            print(f"Error writing to file: {e}")
+
+
+if __name__ == "__main__":
+    processor = FileProcessor("demo_file.txt")
+
+    processor.read_file()
+    processor.print_content()
+    processor.count_stars()
+    processor.append_eof_message()   
