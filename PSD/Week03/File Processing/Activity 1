@@ -1,0 +1,37 @@
+class FileProcessor:
+    """Reads a file, prints its content, and counts '*' characters."""
+
+    def __init__(self, filepath):
+        self.filepath = filepath
+        self.content = ""
+
+    def read_file(self):
+        """Reads the whole file content into memory."""
+        try:
+            with open(self.filepath, "r", encoding="utf-8") as f:
+                self.content = f.read()
+            print(">>> File loaded successfully.\n")
+        except FileNotFoundError:
+            print("Error: File not found.")
+        except Exception as e:
+            print("Unexpected error:", e)
+
+    def print_content(self):
+        """Prints the WHOLE file content."""
+        print("========== FILE CONTENT ==========")
+        print(self.content)  
+        print("==================================\n")
+
+    def count_stars(self):
+        """Counts the '*' characters in the file."""
+        count = self.content.count("*")
+        print(f"Total '*' characters found: {count}")
+        return count
+
+
+if __name__ == "__main__":
+    processor = FileProcessor("demo_file.txt")
+
+    processor.read_file()
+    processor.print_content()
+    processor.count_stars()
