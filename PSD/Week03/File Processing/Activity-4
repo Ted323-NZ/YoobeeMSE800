@@ -1,0 +1,186 @@
+"""
+Week 3 - Activity 4: SQLite3 + OOP
+
+This program:
+- Creates a small college database based on ER design
+- Inserts sample data (students, teachers, courses)
+- Queries:
+    1) Number of students in MSE800
+    2) List teachers teaching MSE801
+"""
+
+import sqlite3
+
+# ================================
+# Database Class
+# ================================
+
+class CollegeDB:
+    """Simple OOP wrapper for SQLite operations."""
+
+    def __init__(self, db_name="college.db"):
+        self.conn = sqlite3.connect(db_name)
+        self.cursor = self.conn.cursor()
+        print(">>> Database connected")
+
+    def reset_tables(self):
+        """Drop + recreate tables (clean setup every run)."""
+        tables = ["Enrolments", "Teaching", "Students", "Teachers", "Courses"]
+
+        for t in tables:
+            self.cursor.execute(f"DROP TABLE IF EXISTS {t}")
+
+        # Students
+        self.cursor.execute("""
+            CREATE TABLE Students(
+                sid INTEGER PRIMARY KEY,
+                name TEXT,
+                email TEXT
+            );
+        """)
+
+        # Teachers
+        self.cursor.execute("""
+            CREATE TABLE Teachers(
+                tid INTEGER PRIMARY KEY,
+                name TEXT,
+                email TEXT
+            );
+        """)
+
+        # Courses
+        self.cursor.execute("""
+            CREATE TABLE Courses(
+                code TEXT PRIMARY KEY,
+                title TEXT
+            );
+        """)
+
+        # Student → Course
+        self.cursor.execute("""
+            CREATE TABLE Enrolments(
+                sid INTEGER,
+                code TEXT,
+                FOREIGN KEY(sid) REFERENCES Students(sid),
+                FOREIGN KEY(code) REFERENCES Courses(code)
+            );
+        """)
+
+        # Teacher → Course
+        self.cursor.execute("""
+            CREATE TABLE Teaching(
+                tid INTEGER,
+                code TEXT,
+                FOREIGN KEY(tid) REFERENCES Teachers(tid),
+                FOREIGN KEY(code) REFERENCES Courses(code)
+            );
+        """)
+
+        self.conn.commit()
+        print(">>> Tables created")
+
+    # ==================================
+    # Insert Functions
+    # ==================================
+
+    def add_student(self, sid, name, email):
+        self.cursor.execute("INSERT INTO Students VALUES (?, ?, ?)", (sid, name, email))
+        self.conn.commit()
+
+    def add_teacher(self, tid, name, email):
+        self.cursor.execute("INSERT INTO Teachers VALUES (?, ?, ?)", (tid, name, email))
+        self.conn.commit()
+
+    def add_course(self, code, title):
+        self.cursor.execute("INSERT INTO Courses VALUES (?, ?)", (code, title))
+        self.conn.commit()
+
+    def enrol_student(self, sid, code):
+        self.cursor.execute("INSERT INTO Enrolments VALUES (?, ?)", (sid, code))
+        self.conn.commit()
+
+    def assign_teacher(self, tid, code):
+        self.cursor.execute("INSERT INTO Teaching VALUES (?, ?)", (tid, code))
+        self.conn.commit()
+
+    # ==================================
+    # Query Functions (Required Output)
+    # ==================================
+
+    def count_students(self, course_code):
+        """Return number of students enrolled in given course."""
+        self.cursor.execute("""
+            SELECT COUNT(*)
+            FROM Enrolments
+            WHERE code = ?
+        """, (course_code,))
+        return self.cursor.fetchone()[0]
+
+    def teachers_for_course(self, course_code):
+        """Return teachers who teach the given course."""
+        self.cursor.execute("""
+            SELECT name
+            FROM Teachers
+            JOIN Teaching ON Teachers.tid = Teaching.tid
+            WHERE Teaching.code = ?
+        """, (course_code,))
+        return [row[0] for row in self.cursor.fetchall()]
+
+    def close(self):
+        self.conn.close()
+        print(">>> Database closed")
+
+
+# ================================
+# Main Program
+# ================================
+
+def main():
+    print("\n===== College Database System (Professional Version C) =====\n")
+
+    db = CollegeDB()
+    db.reset_tables()
+
+    # Courses
+    db.add_course("MSE800", "Professional Software Development")
+    db.add_course("MSE801", "Research Methods")
+
+    # Teachers
+    db.add_teacher(1, "Dr. Arun Kumar", "arun@yoobee.com")
+    db.add_teacher(2, "Dr. Saveeta Bai", "saveeta@yoobee.com")
+
+    # Students
+    db.add_student(101, "Alice", "alice@mail.com")
+    db.add_student(102, "Bob", "bob@mail.com")
+    db.add_student(103, "Cindy", "cindy@mail.com")
+
+    # Enrolments
+    db.enrol_student(101, "MSE800")
+    db.enrol_student(102, "MSE800")
+    db.enrol_student(103, "MSE800")
+
+    # Teachers teaching courses
+    db.assign_teacher(1, "MSE801")  # Arun teaches MSE801
+    db.assign_teacher(2, "MSE800")  # Saveeta teaches MSE800
+
+    # =======================================
+    # Required Output 1
+    # =======================================
+    print(">>> Students enrolled in MSE800:")
+    num = db.count_students("MSE800")
+    print("Total:", num)
+
+    # =======================================
+    # Required Output 2
+    # =======================================
+    print("\n>>> Teachers teaching MSE801:")
+    teachers = db.teachers_for_course("MSE801")
+    for t in teachers:
+        print("-", t)
+
+    db.close()
+    print("\n===== Program Complete =====\n")
+
+
+if __name__ == "__main__":
+    main()
