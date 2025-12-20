@@ -1,0 +1,48 @@
+@startuml
+!theme spacelab
+skinparam dpi 200
+skinparam Shadowing false
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 16
+left to right direction
+title Ingredient Ordering Subsystem - Use Case Diagram
+
+actor "Purchaser" as P
+actor "Manager" as M
+actor "Supplier" as S
+
+note right of P
+- Check stock levels
+- Create ingredient order
+- Track order status
+end note
+
+note right of M
+- Approve / reject orders
+end note
+
+note left of S
+- Confirm PO
+- Send backorder notice
+end note
+
+rectangle "Ingredient Ordering Subsystem" {
+  usecase "Check stock levels" as UC1
+  usecase "Create ingredient order" as UC2
+  usecase "Approve order" as UC3
+  usecase "Submit purchase order (PO)" as UC4
+  usecase "Receive confirmation / backorder" as UC5
+  usecase "Track order status" as UC6
+}
+
+P --> UC1
+P --> UC2
+M --> UC3
+P --> UC6
+
+UC2 --> UC1 : <<include>>
+UC3 --> UC4 : <<include>>
+UC4 --> S
+S --> UC5
+UC5 --> UC6 : <<include>>
+@enduml

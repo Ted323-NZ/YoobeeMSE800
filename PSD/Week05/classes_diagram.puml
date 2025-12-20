@@ -1,0 +1,77 @@
+@startuml
+!theme spacelab
+skinparam dpi 200
+skinparam Shadowing false
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 16
+title Ingredient Ordering Subsystem - Class Diagram
+
+' ===== Core domain classes =====
+class Ingredient {
+  +ingredientId: String
+  +name: String
+  +unit: String
+}
+
+class InventoryItem {
+  +currentQty: float
+  +reorderPoint: float
+  +needsReorder(): boolean
+}
+
+class Supplier {
+  +supplierId: String
+  +name: String
+  +email: String
+  +requestQuote(ingredient: Ingredient, qty: float): float
+}
+
+class PurchaseOrder {
+  +poNumber: String
+  +createdAt: Date
+  +status: OrderStatus
+  +create()
+  +submit()
+  +updateStatus(newStatus: OrderStatus)
+}
+
+class PurchaseOrderLine {
+  +quantity: float
+  +unitPrice: float
+  +lineTotal(): float
+}
+
+enum OrderStatus {
+  Draft
+  Approved
+  Submitted
+  Confirmed
+  Backordered
+  Cancelled
+}
+
+' ===== Optional actors as classes (good for UML) =====
+abstract class Employee {
+  +employeeId: String
+  +name: String
+}
+
+class Purchaser {
+  +createOrder(): PurchaseOrder
+}
+
+class Manager {
+  +approveOrder(po: PurchaseOrder)
+}
+
+' ===== Relationships =====
+InventoryItem "1" --> "1" Ingredient : tracks >
+PurchaseOrder "1" *-- "1..*" PurchaseOrderLine : contains >
+PurchaseOrderLine "1" --> "1" Ingredient : for >
+PurchaseOrder "1" --> "1" Supplier : sent to >
+Employee <|-- Purchaser
+Employee <|-- Manager
+Purchaser "1" --> "0..*" PurchaseOrder : creates >
+Manager "1" --> "0..*" PurchaseOrder : approves >
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml
+!theme spacelab
+skinparam dpi 200
+skinparam Shadowing false
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 16
+title Ingredient Ordering Subsystem - Activity Diagram
+
+|System|
+start
+:Check stock vs reorder point;
+
+if (Reorder needed?) then (Yes)
+  :Generate draft order;
+
+  |Purchaser|
+  :Review items & quantities;
+
+  |Manager|
+  if (Approve order?) then (Approve)
+    |System|
+    :Create and send PO to supplier;
+
+    |Supplier|
+    :Confirm or backorder;
+
+    |System|
+    :Update order status;
+    stop
+  else (Reject)
+    |System|
+    :Hold / cancel order;
+    stop
+  endif
+
+else (No)
+  :No action required;
+  stop
+endif
+@enduml
