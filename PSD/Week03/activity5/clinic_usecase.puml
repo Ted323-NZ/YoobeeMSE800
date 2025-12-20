@@ -1,0 +1,38 @@
+@startuml
+left to right direction
+
+actor Administrator as Admin
+actor Patient
+actor Doctor
+
+rectangle "Clinic Management System (W3-A5)" {
+
+  usecase "Login System" as UC_Login
+  usecase "Manage Users and\nPermissions" as UC_Manage
+  usecase "Approve Registration" as UC_Approve
+
+  usecase "Register Appointment" as UC_Book
+  usecase "Cancel Appointment" as UC_Cancel
+
+  usecase "Access Medical\nRecords" as UC_Records
+  usecase "View Patient Information\nand History" as UC_History
+  usecase "Diagnose and Treat\nPatients" as UC_Treat
+}
+
+Admin -- UC_Login
+Admin -- UC_Manage
+UC_Manage ..> UC_Approve : <<include>>
+
+Patient -- UC_Login
+Patient -- UC_Book
+Patient -- UC_Cancel
+Patient -- UC_Records
+
+Doctor -- UC_Login
+Doctor -- UC_Records
+Doctor -- UC_History
+Doctor -- UC_Treat
+
+UC_Cancel ..> UC_Book : <<extend>>
+
+@enduml
