@@ -1,0 +1,31 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+
+# Local caches
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Local database
+/data/app.db
+
+# Build artifacts / archives
+*.zip
+*.pyz
+
+# UML sources
+docs/uml/*.puml
+
+# Tests
+docs/uml/tests/
+
+# PDFs (uncomment if you don't want to track exported PDFs)
+# docs/*.pdf
+# docs/uml/*.pdf
