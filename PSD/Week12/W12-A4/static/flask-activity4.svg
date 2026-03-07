@@ -1,13 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="540" viewBox="0 0 1040 540" role="img" aria-label="Flask Activity 4">
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="540" viewBox="0 0 1040 540" role="img" aria-label="Flask Meme Image">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#e0f2fe"/>
-      <stop offset="100%" stop-color="#d1fae5"/>
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#fdba74"/>
+      <stop offset="100%" stop-color="#f472b6"/>
     </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
   </defs>
+
   <rect width="1040" height="540" fill="url(#bg)"/>
-  <rect x="72" y="72" width="896" height="396" rx="24" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
-  <text x="520" y="210" text-anchor="middle" font-size="52" font-family="Arial, sans-serif" fill="#0f172a">Flask Activity 4</text>
-  <text x="520" y="280" text-anchor="middle" font-size="34" font-family="Arial, sans-serif" fill="#1e293b">Hyperlink + Image in Web App</text>
-  <text x="520" y="350" text-anchor="middle" font-size="28" font-family="Arial, sans-serif" fill="#475569">Loaded from static/flask-activity4.svg</text>
+  <circle cx="140" cy="90" r="26" fill="#111827"/>
+  <circle cx="900" cy="120" r="18" fill="#111827"/>
+  <circle cx="960" cy="470" r="24" fill="#111827"/>
+
+  <rect x="80" y="70" width="880" height="400" rx="30" fill="#0f172a" filter="url(#shadow)"/>
+  <rect x="96" y="86" width="848" height="368" rx="24" fill="#f8fafc"/>
+
+  <text x="520" y="180" text-anchor="middle" font-size="58" font-family="Arial, sans-serif" font-weight="700" fill="#b91c1c">
+    WHEN FLASK RUNS FIRST TRY
+  </text>
+  <text x="520" y="246" text-anchor="middle" font-size="46" font-family="Arial, sans-serif" font-weight="700" fill="#1d4ed8">
+    NO BUGS? SUSPICIOUS.
+  </text>
+
+  <rect x="190" y="288" width="660" height="110" rx="16" fill="#111827"/>
+  <text x="520" y="344" text-anchor="middle" font-size="32" font-family="Courier New, monospace" fill="#22c55e">
+    flask --app app run --debug
+  </text>
+  <text x="520" y="430" text-anchor="middle" font-size="26" font-family="Arial, sans-serif" fill="#334155">
+    Week 12 Activity 4 meme image (static/flask-activity4.svg)
+  </text>
 </svg>
