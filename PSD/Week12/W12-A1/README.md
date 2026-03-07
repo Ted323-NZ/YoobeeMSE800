@@ -23,3 +23,9 @@ Then open:
 `http://127.0.0.1:5000/`
 
 Because the file is named `app.py`, `flask run --debug` also works after activation.
+
+## Routes
+
+- `/` -> `Hello Flask Framework!`
+- `/bye` -> `Bye Flask Framework!`
+- `/user/<username>` -> `Hello, <username>!` (example: `/user/alice`)
