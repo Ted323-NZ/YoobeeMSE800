@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 12 - Activity 4</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      line-height: 1.5;
+      color: #1f2937;
+      background: #f9fafb;
+    }
+    .card {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+    a {
+      color: #0b5ed7;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    img {
+      width: 100%;
+      max-width: 520px;
+      display: block;
+      margin-top: 1rem;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Week 12 - Activity 4</h1>
+    <p>
+      Flask documentation quickstart link:
+      <a href="https://flask.palletsprojects.com/en/stable/quickstart/" target="_blank" rel="noopener noreferrer">
+        Open Flask Quickstart
+      </a>
+    </p>
+    <p>Image loaded from the Flask <code>static</code> folder:</p>
+    <img src="{{ url_for('static', filename='flask-activity4.svg') }}" alt="Flask Activity 4 image">
+  </main>
+</body>
+</html>
