@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Beijing Air Quality Task 1</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f1ea;
+      --panel: #fffaf2;
+      --ink: #1f2933;
+      --muted: #52606d;
+      --accent: #9c6644;
+      --line: #d9cbb9;
+    }
+    body {
+      margin: 0;
+      padding: 32px;
+      background: radial-gradient(circle at top left, #f9e6d3, var(--bg) 42%);
+      color: var(--ink);
+      font: 15px/1.45 "SF Mono", "Menlo", "Consolas", monospace;
+    }
+    .wrap {
+      max-width: 1700px;
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(58, 36, 24, 0.08);
+      overflow: hidden;
+    }
+    .hero {
+      padding: 28px 32px 18px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(156, 102, 68, 0.12), rgba(255, 250, 242, 0.9));
+    }
+    h1, h2 {
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+    p {
+      margin: 6px 0;
+      color: var(--muted);
+    }
+    .section {
+      padding: 24px 32px;
+    }
+    .stats {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .card {
+      min-width: 190px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.6);
+    }
+    .card strong {
+      display: block;
+      font-size: 24px;
+      color: var(--accent);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      table-layout: fixed;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+      word-break: break-word;
+    }
+    th {
+      background: #f7eee4;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <h1>Beijing Multi-Site Air Quality - Task 1</h1>
+      <p>Dataset source: /Users/ginoted/Downloads/beijing+multi+site+air+quality+data.zip -&gt; PRSA2017_Data_20130301-20170228.zip</p>
+      <p>12 station CSV files combined into one analysis-ready view.</p>
+      <div class="stats">
+        <div class="card"><span>Total rows</span><strong>420,768</strong></div>
+        <div class="card"><span>Total columns</span><strong>18</strong></div>
+        <div class="card"><span>CSV files</span><strong>12</strong></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Data Structure</h2>
+      <p>The download package contains a nested ZIP file, and the nested ZIP contains one CSV file per Beijing monitoring station.</p>
+      <p>Each row is a single hourly observation with pollutant values, meteorological readings, and the station name. Missing values are recorded as <code>NA</code>.</p>
+    </div>
+
+    <div class="section">
+      <h2>First 5 Rows</h2>
+      <table>
+        <thead><tr><th>No</th><th>year</th><th>month</th><th>day</th><th>hour</th><th>PM2.5</th><th>PM10</th><th>SO2</th><th>NO2</th><th>CO</th><th>O3</th><th>TEMP</th><th>PRES</th><th>DEWP</th><th>RAIN</th><th>wd</th><th>WSPM</th><th>station</th></tr></thead>
+        <tbody><tr><td>1</td><td>2013</td><td>3</td><td>1</td><td>0</td><td>4</td><td>4</td><td>4</td><td>7</td><td>300</td><td>77</td><td>-0.7</td><td>1023</td><td>-18.8</td><td>0</td><td>NNW</td><td>4.4</td><td>Aotizhongxin</td></tr><tr><td>2</td><td>2013</td><td>3</td><td>1</td><td>1</td><td>8</td><td>8</td><td>4</td><td>7</td><td>300</td><td>77</td><td>-1.1</td><td>1023.2</td><td>-18.2</td><td>0</td><td>N</td><td>4.7</td><td>Aotizhongxin</td></tr><tr><td>3</td><td>2013</td><td>3</td><td>1</td><td>2</td><td>7</td><td>7</td><td>5</td><td>10</td><td>300</td><td>73</td><td>-1.1</td><td>1023.5</td><td>-18.2</td><td>0</td><td>NNW</td><td>5.6</td><td>Aotizhongxin</td></tr><tr><td>4</td><td>2013</td><td>3</td><td>1</td><td>3</td><td>6</td><td>6</td><td>11</td><td>11</td><td>300</td><td>72</td><td>-1.4</td><td>1024.5</td><td>-19.4</td><td>0</td><td>NW</td><td>3.1</td><td>Aotizhongxin</td></tr><tr><td>5</td><td>2013</td><td>3</td><td>1</td><td>4</td><td>3</td><td>3</td><td>12</td><td>12</td><td>300</td><td>72</td><td>-2</td><td>1025.2</td><td>-19.5</td><td>0</td><td>N</td><td>2</td><td>Aotizhongxin</td></tr></tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Column Names and Inferred Data Types</h2>
+      <table>
+        <thead><tr><th>Column</th><th>Data Type</th></tr></thead>
+        <tbody><tr><td>No</td><td>int</td></tr><tr><td>year</td><td>int</td></tr><tr><td>month</td><td>int</td></tr><tr><td>day</td><td>int</td></tr><tr><td>hour</td><td>int</td></tr><tr><td>PM2.5</td><td>float</td></tr><tr><td>PM10</td><td>float</td></tr><tr><td>SO2</td><td>float</td></tr><tr><td>NO2</td><td>float</td></tr><tr><td>CO</td><td>int</td></tr><tr><td>O3</td><td>float</td></tr><tr><td>TEMP</td><td>float</td></tr><tr><td>PRES</td><td>float</td></tr><tr><td>DEWP</td><td>float</td></tr><tr><td>RAIN</td><td>float</td></tr><tr><td>wd</td><td>string</td></tr><tr><td>WSPM</td><td>float</td></tr><tr><td>station</td><td>string</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
