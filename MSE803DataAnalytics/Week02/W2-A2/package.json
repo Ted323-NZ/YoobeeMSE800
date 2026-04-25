@@ -1,0 +1,21 @@
+{
+  "name": "mse803-week02-w2-a2",
+  "version": "1.0.0",
+  "description": "Week 2 Activity 2 presentation assets for the Beijing Multi-Site Air Quality dataset",
+  "main": "slides/build_presentation.js",
+  "scripts": {
+    "build:ppt": "node slides/build_presentation.js"
+  },
+  "keywords": [
+    "mse803",
+    "data-analytics",
+    "beijing-air-quality",
+    "pptx"
+  ],
+  "author": "Weizhao Tan",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}

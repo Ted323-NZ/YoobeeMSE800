@@ -1,0 +1,563 @@
+{
+  "assumption_note": "Blackboard task wording was not locally available, so Tasks 2-6 were implemented as a standard statistical-analysis sequence.",
+  "dataset_path": "/Users/ginoted/Downloads/beijing+multi+site+air+quality+data.zip",
+  "row_count": 420768,
+  "column_count": 18,
+  "station_count": 12,
+  "stations": [
+    "Aotizhongxin",
+    "Changping",
+    "Dingling",
+    "Dongsi",
+    "Guanyuan",
+    "Gucheng",
+    "Huairou",
+    "Nongzhanguan",
+    "Shunyi",
+    "Tiantan",
+    "Wanliu",
+    "Wanshouxigong"
+  ],
+  "missing_summary": [
+    {
+      "column": "No",
+      "missing_count": 0,
+      "missing_rate_pct": 0.0
+    },
+    {
+      "column": "year",
+      "missing_count": 0,
+      "missing_rate_pct": 0.0
+    },
+    {
+      "column": "month",
+      "missing_count": 0,
+      "missing_rate_pct": 0.0
+    },
+    {
+      "column": "day",
+      "missing_count": 0,
+      "missing_rate_pct": 0.0
+    },
+    {
+      "column": "hour",
+      "missing_count": 0,
+      "missing_rate_pct": 0.0
+    },
+    {
+      "column": "PM2.5",
+      "missing_count": 8739,
+      "missing_rate_pct": 2.0769
+    },
+    {
+      "column": "PM10",
+      "missing_count": 6449,
+      "missing_rate_pct": 1.5327
+    },
+    {
+      "column": "SO2",
+      "missing_count": 9021,
+      "missing_rate_pct": 2.1439
+    },
+    {
+      "column": "NO2",
+      "missing_count": 12116,
+      "missing_rate_pct": 2.8795
+    },
+    {
+      "column": "CO",
+      "missing_count": 20701,
+      "missing_rate_pct": 4.9198
+    },
+    {
+      "column": "O3",
+      "missing_count": 13277,
+      "missing_rate_pct": 3.1554
+    },
+    {
+      "column": "TEMP",
+      "missing_count": 398,
+      "missing_rate_pct": 0.0946
+    },
+    {
+      "column": "PRES",
+      "missing_count": 393,
+      "missing_rate_pct": 0.0934
+    },
+    {
+      "column": "DEWP",
+      "missing_count": 403,
+      "missing_rate_pct": 0.0958
+    },
+    {
+      "column": "RAIN",
+      "missing_count": 390,
+      "missing_rate_pct": 0.0927
+    },
+    {
+      "column": "wd",
+      "missing_count": 1822,
+      "missing_rate_pct": 0.433
+    },
+    {
+      "column": "WSPM",
+      "missing_count": 318,
+      "missing_rate_pct": 0.0756
+    },
+    {
+      "column": "station",
+      "missing_count": 0,
+      "missing_rate_pct": 0.0
+    }
+  ],
+  "descriptive_stats": [
+    {
+      "column": "PM2.5",
+      "count": 412029,
+      "missing_count": 8739,
+      "missing_rate_pct": 2.0769,
+      "mean": 79.79342813248583,
+      "median": 55.0,
+      "std": 80.82229318161392,
+      "min": 2.0,
+      "max": 999.0
+    },
+    {
+      "column": "PM10",
+      "count": 414319,
+      "missing_count": 6449,
+      "missing_rate_pct": 1.5327,
+      "mean": 104.60261754831421,
+      "median": 82.0,
+      "std": 91.77231481462283,
+      "min": 2.0,
+      "max": 999.0
+    },
+    {
+      "column": "SO2",
+      "count": 411747,
+      "missing_count": 9021,
+      "missing_rate_pct": 2.1439,
+      "mean": 15.830834699949241,
+      "median": 7.0,
+      "std": 21.650576821216674,
+      "min": 0.2856,
+      "max": 500.0
+    },
+    {
+      "column": "NO2",
+      "count": 408652,
+      "missing_count": 12116,
+      "missing_rate_pct": 2.8795,
+      "mean": 50.638585592631394,
+      "median": 43.0,
+      "std": 35.127868819038596,
+      "min": 1.0265,
+      "max": 290.0
+    },
+    {
+      "column": "CO",
+      "count": 400067,
+      "missing_count": 20701,
+      "missing_rate_pct": 4.9198,
+      "mean": 1230.7664541189351,
+      "median": 900.0,
+      "std": 1160.1812664176887,
+      "min": 100.0,
+      "max": 10000.0
+    },
+    {
+      "column": "O3",
+      "count": 407491,
+      "missing_count": 13277,
+      "missing_rate_pct": 3.1554,
+      "mean": 57.37227127961108,
+      "median": 45.0,
+      "std": 56.661537873420336,
+      "min": 0.2142,
+      "max": 1071.0
+    },
+    {
+      "column": "TEMP",
+      "count": 420370,
+      "missing_count": 398,
+      "missing_rate_pct": 0.0946,
+      "mean": 13.538975833816357,
+      "median": 14.5,
+      "std": 11.436125805447144,
+      "min": -19.9,
+      "max": 41.6
+    },
+    {
+      "column": "PRES",
+      "count": 420375,
+      "missing_count": 393,
+      "missing_rate_pct": 0.0934,
+      "mean": 1010.7469819844983,
+      "median": 1010.4,
+      "std": 10.474042291618195,
+      "min": 982.4,
+      "max": 1042.8
+    },
+    {
+      "column": "DEWP",
+      "count": 420365,
+      "missing_count": 403,
+      "missing_rate_pct": 0.0958,
+      "mean": 2.490822023717484,
+      "median": 3.1,
+      "std": 13.793830465141774,
+      "min": -43.4,
+      "max": 29.1
+    },
+    {
+      "column": "RAIN",
+      "count": 420378,
+      "missing_count": 390,
+      "missing_rate_pct": 0.0927,
+      "mean": 0.06447578132062097,
+      "median": 0.0,
+      "std": 0.821003169854204,
+      "min": 0.0,
+      "max": 72.5
+    },
+    {
+      "column": "WSPM",
+      "count": 420450,
+      "missing_count": 318,
+      "missing_rate_pct": 0.0756,
+      "mean": 1.7297105482221429,
+      "median": 1.4,
+      "std": 1.2463840831977353,
+      "min": 0.0,
+      "max": 13.2
+    }
+  ],
+  "monthly_avg_pm25": {
+    "Jan": 93.667,
+    "Feb": 87.5722,
+    "Mar": 94.6607,
+    "Apr": 72.7349,
+    "May": 63.1053,
+    "Jun": 69.092,
+    "Jul": 71.7449,
+    "Aug": 53.473,
+    "Sep": 61.4781,
+    "Oct": 91.7268,
+    "Nov": 93.3315,
+    "Dec": 104.5812
+  },
+  "monthly_avg_o3": {
+    "Jan": 27.6337,
+    "Feb": 40.7348,
+    "Mar": 51.0413,
+    "Apr": 70.1857,
+    "May": 92.0286,
+    "Jun": 94.6923,
+    "Jul": 95.0869,
+    "Aug": 87.8716,
+    "Sep": 55.0949,
+    "Oct": 29.9279,
+    "Nov": 19.8717,
+    "Dec": 21.3872
+  },
+  "hourly_avg_pm25": {
+    "0": 87.5884,
+    "1": 86.5598,
+    "2": 84.5163,
+    "3": 82.0147,
+    "4": 79.2998,
+    "5": 76.3954,
+    "6": 74.241,
+    "7": 73.2722,
+    "8": 74.5333,
+    "9": 76.0598,
+    "10": 77.1228,
+    "11": 77.3517,
+    "12": 76.8583,
+    "13": 76.2201,
+    "14": 75.3268,
+    "15": 74.5238,
+    "16": 74.0992,
+    "17": 75.3672,
+    "18": 78.0221,
+    "19": 82.497,
+    "20": 86.5555,
+    "21": 88.7806,
+    "22": 88.8879,
+    "23": 88.6068
+  },
+  "hourly_avg_o3": {
+    "0": 41.9538,
+    "1": 38.1954,
+    "2": 34.2993,
+    "3": 31.9715,
+    "4": 30.7617,
+    "5": 28.4407,
+    "6": 27.2591,
+    "7": 25.4692,
+    "8": 27.1272,
+    "9": 34.7219,
+    "10": 46.182,
+    "11": 59.4107,
+    "12": 73.2956,
+    "13": 86.5031,
+    "14": 96.4519,
+    "15": 101.3527,
+    "16": 102.3101,
+    "17": 98.7251,
+    "18": 90.235,
+    "19": 78.7516,
+    "20": 67.4048,
+    "21": 57.3626,
+    "22": 50.1595,
+    "23": 45.3899
+  },
+  "station_pm25_ranking": [
+    {
+      "rank": 1,
+      "station": "Dongsi",
+      "avg_pm25": 86.1943
+    },
+    {
+      "rank": 2,
+      "station": "Wanshouxigong",
+      "avg_pm25": 85.0241
+    },
+    {
+      "rank": 3,
+      "station": "Nongzhanguan",
+      "avg_pm25": 84.8385
+    },
+    {
+      "rank": 4,
+      "station": "Gucheng",
+      "avg_pm25": 83.8521
+    },
+    {
+      "rank": 5,
+      "station": "Wanliu",
+      "avg_pm25": 83.3747
+    },
+    {
+      "rank": 6,
+      "station": "Guanyuan",
+      "avg_pm25": 82.9334
+    },
+    {
+      "rank": 7,
+      "station": "Aotizhongxin",
+      "avg_pm25": 82.7736
+    },
+    {
+      "rank": 8,
+      "station": "Tiantan",
+      "avg_pm25": 82.1649
+    },
+    {
+      "rank": 9,
+      "station": "Shunyi",
+      "avg_pm25": 79.4916
+    },
+    {
+      "rank": 10,
+      "station": "Changping",
+      "avg_pm25": 71.0997
+    },
+    {
+      "rank": 11,
+      "station": "Huairou",
+      "avg_pm25": 69.6264
+    },
+    {
+      "rank": 12,
+      "station": "Dingling",
+      "avg_pm25": 65.9895
+    }
+  ],
+  "correlation_columns": [
+    "PM2.5",
+    "PM10",
+    "SO2",
+    "NO2",
+    "CO",
+    "O3",
+    "TEMP",
+    "PRES",
+    "DEWP",
+    "RAIN",
+    "WSPM"
+  ],
+  "correlation_matrix": [
+    [
+      1.0,
+      0.8844,
+      0.4824,
+      0.6669,
+      0.79,
+      -0.1497,
+      -0.1311,
+      0.0186,
+      0.1147,
+      -0.0144,
+      -0.2722
+    ],
+    [
+      0.8844,
+      1.0,
+      0.4627,
+      0.6522,
+      0.7024,
+      -0.1113,
+      -0.0962,
+      -0.018,
+      0.0703,
+      -0.0265,
+      -0.1837
+    ],
+    [
+      0.4824,
+      0.4627,
+      1.0,
+      0.4995,
+      0.5358,
+      -0.1653,
+      -0.3218,
+      0.2232,
+      -0.2668,
+      -0.0402,
+      -0.1087
+    ],
+    [
+      0.6669,
+      0.6522,
+      0.4995,
+      1.0,
+      0.7055,
+      -0.4716,
+      -0.2782,
+      0.1742,
+      -0.0316,
+      -0.0438,
+      -0.4005
+    ],
+    [
+      0.79,
+      0.7024,
+      0.5358,
+      0.7055,
+      1.0,
+      -0.313,
+      -0.3262,
+      0.1882,
+      -0.0571,
+      -0.0133,
+      -0.2975
+    ],
+    [
+      -0.1497,
+      -0.1113,
+      -0.1653,
+      -0.4716,
+      -0.313,
+      1.0,
+      0.5949,
+      -0.446,
+      0.3121,
+      0.0233,
+      0.2957
+    ],
+    [
+      -0.1311,
+      -0.0962,
+      -0.3218,
+      -0.2782,
+      -0.3262,
+      0.5949,
+      1.0,
+      -0.8133,
+      0.8201,
+      0.0376,
+      0.033
+    ],
+    [
+      0.0186,
+      -0.018,
+      0.2232,
+      0.1742,
+      0.1882,
+      -0.446,
+      -0.8133,
+      1.0,
+      -0.7502,
+      -0.0609,
+      0.0651
+    ],
+    [
+      0.1147,
+      0.0703,
+      -0.2668,
+      -0.0316,
+      -0.0571,
+      0.3121,
+      0.8201,
+      -0.7502,
+      1.0,
+      0.0863,
+      -0.2966
+    ],
+    [
+      -0.0144,
+      -0.0265,
+      -0.0402,
+      -0.0438,
+      -0.0133,
+      0.0233,
+      0.0376,
+      -0.0609,
+      0.0863,
+      1.0,
+      0.021
+    ],
+    [
+      -0.2722,
+      -0.1837,
+      -0.1087,
+      -0.4005,
+      -0.2975,
+      0.2957,
+      0.033,
+      0.0651,
+      -0.2966,
+      0.021,
+      1.0
+    ]
+  ],
+  "key_insights": {
+    "highest_missing_column": "CO",
+    "highest_missing_rate_pct": 4.9198,
+    "highest_pm25_station": "Dongsi",
+    "highest_pm25_value": 86.1943,
+    "lowest_pm25_station": "Dingling",
+    "lowest_pm25_value": 65.9895,
+    "peak_pm25_month": "Dec",
+    "peak_pm25_month_value": 104.5812,
+    "peak_o3_month": "Jul",
+    "peak_o3_month_value": 95.0869,
+    "peak_pm25_hour": 22,
+    "peak_pm25_hour_value": 88.8879,
+    "peak_o3_hour": 16,
+    "peak_o3_hour_value": 102.3101,
+    "pm25_strongest_positive_correlation_column": "PM10",
+    "pm25_strongest_positive_correlation_value": 0.8844,
+    "pm25_strongest_negative_correlation_column": "WSPM",
+    "pm25_strongest_negative_correlation_value": -0.2722
+  },
+  "generated_figures": {
+    "missing_rate_by_column": "figures/missing_rate_by_column.png",
+    "monthly_pm25_o3": "figures/monthly_pm25_o3.png",
+    "hourly_pm25_o3": "figures/hourly_pm25_o3.png",
+    "station_pm25_ranking": "figures/station_pm25_ranking.png",
+    "correlation_heatmap": "figures/correlation_heatmap.png"
+  }
+}
