@@ -1,0 +1,2 @@
+raw_rows,processed_rows_after_lags,start_month,end_month,missing_month_values,missing_passenger_values,duplicate_months_removed,train_end,test_start,test_months,engineered_feature_count
+144,132,1949-01,1960-12,0,0,0,1958-12,1959-01,24,20

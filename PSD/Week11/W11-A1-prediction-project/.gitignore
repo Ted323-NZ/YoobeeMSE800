@@ -1,0 +1,6 @@
+.venv/
+.matplotlib/
+__pycache__/
+.DS_Store
+*.pyc
+*.inspect.ndjson

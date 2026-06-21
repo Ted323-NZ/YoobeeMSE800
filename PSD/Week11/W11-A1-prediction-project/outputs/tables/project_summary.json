@@ -1,0 +1,21 @@
+{
+  "dataset": "Monthly international airline passengers",
+  "source_url": "https://raw.githubusercontent.com/jbrownlee/Datasets/master/airline-passengers.csv",
+  "rows": 144,
+  "start_month": "1949-01",
+  "end_month": "1960-12",
+  "test_months": 24,
+  "best_model_by_rmse": "ANN",
+  "best_rmse": 27.367,
+  "best_mae": 20.081,
+  "best_r2": 0.866,
+  "best_mape": 4.498,
+  "selected_arima_order": "ARIMA(3, 1, 3)",
+  "key_insights": [
+    "Passenger demand increases strongly over time, so trend features are important.",
+    "The dataset has clear yearly seasonality, with repeated mid-year peaks.",
+    "Lag and rolling average features are highly correlated with the target.",
+    "Tree-based and neural models can capture nonlinear seasonal effects, but the small dataset limits model complexity.",
+    "ARIMA is useful as a statistical baseline, although plain ARIMA may not capture all yearly seasonality as well as feature-based models."
+  ]
+}
